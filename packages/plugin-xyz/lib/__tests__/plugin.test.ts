@@ -3,6 +3,6 @@ import { PluginXYZ } from '..';
 
 describe('PluginXYZ', () => {
   test('should succeed', () => {
-    expect(PluginXYZ()).toEqual('PluginXYZ_SdkA');
+    expect(PluginXYZ()).toEqual('PluginXYZ_SdkA_1');
   });
 });
