@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-        registry-url: 'https://npm.pkg.github.com'
+#        registry-url: 'https://npm.pkg.github.com'
 #        scope: '@falconandy'
 
     - name: Install
@@ -47,8 +47,8 @@ jobs:
 
     - name: Authenticate with Registry
       run: |
-        echo "registry=https://npm.pkg.github.com/" > .npmrc
-        echo "//https://npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+        echo "registry=https://npm.pkg.github.com/" > ~/.npmrc
+        echo "//https://npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
         npm whoami
 
     - name: Publish
