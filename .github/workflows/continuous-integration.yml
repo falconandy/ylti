@@ -45,11 +45,6 @@ jobs:
       run: echo "##[set-output name=task;]$(echo '${{ steps.extract_branch.outputs.branch }}' | grep -oE '[A-Za-z]+-[0-9]+' -)"
       id: extract_task
 
-#    - name: Construct preid
-#      shell: bash
-#      run: echo "${{ steps.extract_task.outputs.branch }}" | grep -oE '[A-Za-z]+-[0-9]+' -
-#      id: construct_preid
-
     - name: Set Registry Url
       uses: actions/setup-node@v2
       with:
