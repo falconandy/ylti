@@ -1,5 +1,5 @@
 import { SdkA } from '@falconandy/ylti-sdk';
 
 export function PluginXYZ() {
-  return `PluginXYZ_${SdkA()}_4`;
+  return `PluginXYZ_${SdkA()}_5`;
 }
