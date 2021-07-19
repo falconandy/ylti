@@ -41,6 +41,6 @@ jobs:
       id: extract_branch
 
     - name: Publish
-      run: lerna publish --no-git-tag-version --no-push --force-publish --dist-tag beta-1 --yes
+      run: lerna publish --no-git-tag-version --force-publish --dist-tag beta-1 --yes
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
