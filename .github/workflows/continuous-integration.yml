@@ -18,6 +18,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
+        registry-url: 'https://npm.pkg.github.com'
+#        scope: '@falconandy'
 
     - name: Install
       run: yarn install --frozen-lockfile
@@ -32,3 +34,13 @@ jobs:
       run: yarn test:dist
       env:
         CI: true
+
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+
+    - name: Publish
+      run: yarn release --dist-tag ${{ steps.extract_branch.outputs.branch }} --yes
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
