@@ -35,13 +35,13 @@ jobs:
 #      env:
 #        CI: true
 #
-#    - name: Extract branch name
-#      shell: bash
-#      run: echo "##[set-output name=branch;]$(echo ${GITHUB_HEAD_REF#refs/heads/})"
-#      id: extract_branch
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_HEAD_REF#refs/heads/})"
+      id: extract_branch
 
     - name: Checkout and pull branch
-      run: git checkout "${GITHUB_HEAD_REF:11}" && git pull
+      run: git checkout "${{ steps.extract_branch.outputs.branch }}" && git pull
 
     - name: Publish
       run: lerna publish prerelease --no-git-tag-version --no-push --force-publish --dist-tag beta-1 --preid YLTI-0002 --yes
