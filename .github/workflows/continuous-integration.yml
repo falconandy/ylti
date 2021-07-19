@@ -49,7 +49,7 @@ jobs:
       run: |
         yarn logout
         echo "registry=https://npm.pkg.github.com/" > .npmrc
-        echo "//https://npm.pkg.github.com/:_authToken=GITHUB_TOKEN" >> .npmrc
+        echo "//https://npm.pkg.github.com/:_authToken=$GITHUB_TOKEN" >> .npmrc
         npm whoami
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
