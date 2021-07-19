@@ -39,11 +39,11 @@ jobs:
 #
     - name: Extract branch name
       shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_HEAD_REF#refs/heads/})"
       id: extract_branch
 
-    - name: Checkout branch
-      run: git checkout -b ${{ steps.extract_branch.outputs.branch }}
+#    - name: Checkout branch
+#      run: git checkout -b ${{ steps.extract_branch.outputs.branch }}
 
     - name: Publish
       run: lerna publish prerelease --no-git-tag-version --no-push --force-publish --dist-tag beta-1 --preid YLTI-0002 --yes
