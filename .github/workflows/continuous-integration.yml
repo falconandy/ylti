@@ -45,6 +45,9 @@ jobs:
     - name: Checkout branch
       run: git checkout -b ${{ steps.extract_branch.outputs.branch }}
 
+    - name: Install 2
+      run: yarn install --frozen-lockfile
+
 #    - name: Authenticate with Registry
 #      run: |
 #        echo "registry=https://npm.pkg.github.com/" > ~/.npmrc
