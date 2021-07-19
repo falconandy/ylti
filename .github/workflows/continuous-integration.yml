@@ -18,6 +18,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
+        registry-url: 'https://npm.pkg.github.com'
+#        scope: '@falconandy'
 
     - name: Install
       run: yarn install --frozen-lockfile
@@ -37,13 +39,6 @@ jobs:
       shell: bash
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_HEAD_REF#refs/heads/})"
       id: extract_branch
-
-    - uses: actions/checkout@v2
-
-    - uses: actions/setup-node@v2
-      with:
-        registry-url: 'https://npm.pkg.github.com'
-      #        scope: '@falconandy'
 
     - name: Publish
       run: lerna publish --no-git-tag-version --no-push --force-publish --dist-tag beta-1 --yes
