@@ -1,0 +1,36 @@
+name: CI - Build, Lint, Test
+
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+
+    - name: Install
+      run: |
+        npm i -g lerna
+        yarn install --frozen-lockfile
+
+    - name: Build
+      run: yarn build
+
+    - name: Lint
+      run: yarn lint
+
+    - name: Test
+      run: yarn test:dist
+      env:
+        CI: true
