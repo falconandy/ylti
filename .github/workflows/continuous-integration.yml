@@ -19,7 +19,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
         registry-url: 'https://npm.pkg.github.com'
-#        scope: '@falconandy'
+        scope: '@falconandy'
 
     - name: Install
       run: yarn install --frozen-lockfile
