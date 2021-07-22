@@ -20,7 +20,7 @@ jobs:
         cache: 'yarn'
 
     - name: Replace base package name
-      run: find . -name node_modules -prune -o -type f -exec sed -i 's/@falconandy/@falconandy/g' {} +
+      run: find . -name node_modules -prune -o -type f -exec sed -i 's/@falconydna/@falconandy/g' {} +
 
     - name: Install
       run: yarn install --frozen-lockfile
