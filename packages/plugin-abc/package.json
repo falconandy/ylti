@@ -1,5 +1,5 @@
 {
-  "name": "@falconandy/plugin-abc",
+  "name": "@falconydna/plugin-abc",
   "version": "1.2.3",
   "description": "ABC Plugin for SDK",
   "main": "dist/cjs/index.js",
@@ -32,14 +32,14 @@
     "url": "https://github.com/falconandy/ylti.git"
   },
   "devDependencies": {
-    "@falconandy/ylti-sdk": "^1.2.3",
+    "@falconydna/ylti-sdk": "^1.2.3",
     "@types/jest": "^26.0.0",
     "jest": "^26.0.1",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.3"
   },
   "peerDependencies": {
-    "@falconandy/ylti-sdk": "^1.0.0"
+    "@falconydna/ylti-sdk": "^1.0.0"
   },
   "gitHead": "6694fa97c4d96177674b6acc491b19c3013387c3"
 }

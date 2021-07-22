@@ -1,5 +1,5 @@
 {
-  "name": "@falconandy/ylti-sdk",
+  "name": "@falconydna/ylti-sdk",
   "version": "1.2.3",
   "description": "Ylti SDK",
   "main": "dist/cjs/index.js",
