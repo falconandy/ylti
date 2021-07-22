@@ -22,6 +22,9 @@ jobs:
     - name: Install
       run: yarn install --frozen-lockfile
 
+    - name: Replace base package name
+      run: find . -name node_modules -prune -o -type f -exec sed -i 's/@falconydna/@falconandy/g' {} +
+
     - name: Build
       run: yarn build
 
@@ -50,7 +53,6 @@ jobs:
       uses: actions/setup-node@v2
       with:
         registry-url: 'https://npm.pkg.github.com'
-        scope: '@falconydna'
 
     - name: Publish GitHub packages
       run: lerna publish prerelease --no-git-tag-version --no-push --force-publish --dist-tag ${{ steps.extract_task.outputs.task }} --preid ${{ steps.extract_task.outputs.task }}-${GITHUB_SHA:0:8} --yes --no-verify-access --ignore-prepublish
